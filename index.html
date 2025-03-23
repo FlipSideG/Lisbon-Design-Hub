@@ -27,6 +27,93 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- 3D Model Viewer Styles -->
+  <style>
+    .ar-button {
+      background-color: #25d366;
+      border-radius: 4px;
+      border: none;
+      color: white;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      padding: 10px 16px;
+      font-weight: 500;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      #model-container {
+        height: 400px !important;
+      }
+      
+      .content-subtitle {
+        font-size: 2rem !important;
+      }
+      
+      /* Fix spacing issues on mobile */
+      #about-2 .row.mb-5 {
+        margin-bottom: 1rem !important;
+      }
+      
+      #about-2 .ps-lg-5 {
+        padding-left: 0 !important;
+        margin-top: 1.5rem;
+      }
+      
+      #stats .ps-lg-5 {
+        padding-left: 0 !important;
+        margin-top: 1.5rem;
+      }
+      
+      .images-overlap {
+        margin-bottom: 0.5rem;
+      }
+      
+      .section {
+        padding: 40px 0;
+      }
+      
+      /* Reduce spacing between sections */
+      .row.gy-4 > * {
+        margin-top: 1rem !important;
+      }
+      
+      /* Footer mobile fixes */
+      footer.footer {
+        padding: 40px 0 20px 0 !important;
+        margin-top: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+      }
+      
+      footer .widget-heading {
+        font-size: 1.4rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      footer .btn {
+        margin-top: 1rem;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+      
+      footer .row.g-4 {
+        margin-bottom: 20px;
+      }
+      
+      footer .copyright {
+        margin-top: 20px;
+        text-align: center;
+      }
+      
+      footer .copyright p {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+
   <!-- Model Viewer Library -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
@@ -110,10 +197,10 @@
               <p data-aos="fade-up">
                 As part of this vision, a central shared space at the main entrance will be regularly reimagined by guest interior designers. Through rotating installations, these creatives will design immersive living environments that thoughtfully showcase and elevate the products of our participating brands.
               </p>
-              <div class="row mb-5">
+              <div class="row mb-3">
 
                 <!-- Start Item -->
-                <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-12 mb-3" data-aos="fade-up" data-aos-delay="100">
                   <h3 class="h5">Partners</h3>
                   <p>
                     Partners will invest by renting a space within the hub, which includes access to this central showcase area, as well as a private 10m² office or mono-brand showroom. Each brand is free to personalise and style their space to suit their identity.
@@ -140,16 +227,16 @@
           </div>
 
           <div class="col-lg-4 ps-lg-5">
-            <h1 class="mb-4" data-aos="fade-up">
+            <h1 class="mb-3" data-aos="fade-up">
               Our Mission
             </h1>
-            <p class="mb-4">
+            <p class="mb-3">
               Our mission is to provide start-ups and smaller studios with an affordable yet prestigious platform—one that offers visibility, creative flexibility, and access to a high-value audience of designers, specifiers, and design-conscious clients from Lisbon and beyond.
             </p>
-            <p class="lead">
+            <p class="lead mb-3">
               To establish ourselves as the point of reference, the ultimate one-stop shop, and—most importantly—a leading design hub for all of Europe, we are actively seeking the very best product designers in Portugal and across the continent.
             </p>
-            <p class="mb-5">
+            <p class="mb-4">
               Our goal is to bring together exceptional talent under one roof to shape the future of interior design from the heart of Lisbon. To further enrich the experience, artists and local artisans will be invited to showcase their work on a rotating basis, adding depth and creativity to the space without detracting from the visibility of our core partner brands.
             </p>
           </div>
@@ -177,9 +264,9 @@
           <div class="col-sm-12 col-md-10 col-lg-10" data-aos="fade-up">
             <div class="px-3 text-center mb-4">
               <span class="content-subtitle" style="font-size: 2.5rem; font-weight: bold;">Explore Our Space</span>
-              <p class="lead">Use your mouse to rotate, zoom, and explore our design hub in 3D</p>
+              <p class="lead">Use your fingers to rotate and pinch to zoom. On compatible devices, tap "View in your space" to see the model in AR.</p>
             </div>
-            <div id="model-container" style="height: 862px; width: 100%;">
+            <div id="model-container" style="height: 600px; width: 100%;">
               <!-- Using the model-viewer component to display the local GLB file -->
               <model-viewer 
                 src="assets/models/design_hub.glb" 
@@ -191,7 +278,15 @@
                 field-of-view="30deg"
                 min-camera-orbit="auto auto 70%"
                 max-camera-orbit="auto auto 120%"
+                touch-action="pan-y"
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                ar-scale="auto"
+                interaction-prompt="auto"
                 style="width: 100%; height: 100%;">
+                <button slot="ar-button" class="ar-button">
+                  View in your space
+                </button>
               </model-viewer>
             </div>
           </div>
@@ -209,18 +304,18 @@
   <footer id="footer" class="footer light-background">
     <div class="container">
       <div class="row g-4">
-        <div class="col-md-6 col-lg-6 mb-3 mb-md-0">
+        <div class="col-md-6 col-lg-6 mb-4">
           <div class="widget">
             <h3 class="widget-heading">Contact Us</h3>
             <p class="mb-2">
               Email: <a href="mailto:Giorgiadibella@gmail.com">Giorgiadibella@gmail.com</a>
             </p>
-            <p class="mb-4">
+            <p class="mb-3">
               WhatsApp: <a href="https://wa.me/447531601071">+447531 601071</a>
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-6 d-flex justify-content-md-end align-items-center">
+        <div class="col-md-6 col-lg-6 mb-3 d-flex justify-content-md-end align-items-center">
           <a href="https://wa.me/447531601071" class="btn btn-success d-flex align-items-center" style="background-color: #25d366; border-color: #25d366;">
             <i class="bi bi-whatsapp me-2" style="font-size: 1.5rem;"></i>
             <span>Contact on WhatsApp</span>
