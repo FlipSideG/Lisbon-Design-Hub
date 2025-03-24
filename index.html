@@ -9,10 +9,10 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -86,6 +86,28 @@
         padding-right: 15px !important;
       }
       
+      /* Fix Partners section alignment */
+      .col-12.mb-3 h3, .col-12.mb-3 p, .col-12.mb-0 h3, .col-12.mb-0 p {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+      
+      /* Eliminate gap after partners section */
+      #about-2 .row.mb-0 {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      
+      #about-2 .col-12.mb-0 {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      
+      /* Space between sections needs to be exact */
+      #about-2 {
+        padding-bottom: 20px !important;
+      }
+      
       /* Footer mobile fixes */
       footer.footer {
         padding: 40px 0 20px 0 !important;
@@ -148,7 +170,6 @@
         <ul>
           <!-- Navigation items removed -->
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
     </div>
@@ -203,17 +224,15 @@
               <p data-aos="fade-up">
                 As part of this vision, a central shared space at the main entrance will be regularly reimagined by guest interior designers. Through rotating installations, these creatives will design immersive living environments that thoughtfully showcase and elevate the products of our participating brands.
               </p>
-              <div class="row mb-3">
-
+              <div class="row mb-0">
                 <!-- Start Item -->
-                <div class="col-12 mb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-12 mb-0" data-aos="fade-up" data-aos-delay="100">
                   <h3 class="h5">Partners</h3>
                   <p>
                     Partners will invest by renting a space within the hub, which includes access to this central showcase area, as well as a private 10m² office or mono-brand showroom. Each brand is free to personalise and style their space to suit their identity.
                   </p>
                 </div>
                 <!-- End Item -->
-
               </div>
             </div>
 
